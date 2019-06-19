@@ -15,4 +15,7 @@ RUN mv ./kops /usr/local/bin/kops
 RUN wget https://get.helm.sh/helm-v2.14.1-linux-amd64.tar.gz
 RUN tar -xvzf helm-v2.14.1-linux-amd64.tar.gz
 RUN mv /tmp/linux-amd64/helm /usr/local/bin/helm
+RUN apt-get -y install nodejs npm
+RUN npm install --global @axway/amplify-cli
+RUN npm install acs -g
 WORKDIR /root
