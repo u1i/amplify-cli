@@ -16,3 +16,7 @@ The interactice image contains all the commandline tools you need to work with t
 ## Run it with Persistent Home Directory
 > docker run -it -v $HOME/amplify:/root u1ih/amplify-cli bash
 
+# Docker Hub
+
+[image](https://hub.docker.com/r/u1ih/amplify-cli)
+
