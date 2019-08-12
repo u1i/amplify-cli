@@ -3,6 +3,7 @@
 The interactice image contains all the commandline tools you need to work with the Amplify Platform:
 
 * AWS CLI
+* GCP cli
 * kubectl
 * kops
 * helm
