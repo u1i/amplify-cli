@@ -27,4 +27,6 @@ RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyri
 RUN apt-get update
 RUN apt-get install -y google-cloud-sdk
 
-WORKDIR /root
+RUN useradd -ms /bin/bash amplify
+USER amplify
+WORKDIR /home/amplify
