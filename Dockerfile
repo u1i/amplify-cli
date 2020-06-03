@@ -26,7 +26,11 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.
 RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 RUN apt-get update
 RUN apt-get install -y google-cloud-sdk
-
+RUN apt-get install -y openssl keychain
 RUN useradd -ms /bin/bash amplify
 USER amplify
 WORKDIR /home/amplify
+
+# Do this as user amplify
+RUN ssh-keygen -t rsa -C "your_email@example.com" -f /home/amplify/.ssh/id_rsa -N ""
+RUN openssl rsa -pubout -in /home/amplify/.ssh/id_rsa -out /home/amplify/.ssh/public_key.der && base64 /home/amplify/.ssh/public_key.der > /home/amplify/.ssh/public_key
